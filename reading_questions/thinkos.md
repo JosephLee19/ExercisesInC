@@ -4,20 +4,26 @@
 ### Compilation
 
 1) Give an example of a feature common in interpreted languages that is rare in compiled languages.
+Platform independance - since compiled languages are compiled into machine specific assembly, they are specific to that machine whereas interpreted languages work under the same interface regardless of platform.
 
 2) Name two advantages of static typing over dynamic typing.
+In static typing, many errors can be caught earlier in the development process (for instance, if an integer maps to a string, that would be caught compile-time in static typing, but not until run-time in dynamic typing.  Also since everything is pre-assigned compile-time in static typing, the run speed would probably be faster for static typing.
 
 3) Give an example of a static semantic error.
+Failure to declare a variable.  (quick note to self, a semantic error is an error that is different from syntactic errors...they are dynamic if not caught until run-time and static if the compiler can detect it)
 
 4) What are two reasons you might want to turn off code optimization?
+Debugging your code in assembly - turning off optimization might make it more readable. Another reason might be if you want to try to optimize your code manually or in a different way.
 
 5) When you run `gcc` with `-S`, why might the results look different on different computers?
+Since -S generates assembly code - could look different on different computers since assembly code is machine specific.  A different machine architecture would mean that the assembly code would be different.
 
 6) If you spell a variable name wrong, or if you spell a function name wrong, 
 the error messages you get might look very different.  Why?
+Misspelled variables will be caught during compilation whereas a misspelled function would be caught during linking, hence the different error messages.
 
 7) What is a segmentation fault?
-
+Segmentation fault occurs when a program tries to read or write to the wrong type of memory (for instance trying to grab a global variable out of the stack).
 
 ## Chapter 2
 
@@ -25,8 +31,10 @@ the error messages you get might look very different.  Why?
 ### Processes
 
 1) Give a real-world example of virtualization (ideally not one of the ones in the book).
+Classrooms - each class (usually) feels like they 'own' all the space, but really it is a shared space where each class virtually owns the space when no other class is using it
 
 2) What is the difference between a program and a process?
+Put simply, a process is a running program...a program is a set of instructions.
 
 3) What is the primary purpose of the process abstraction?  What illusion does the process abstraction create?
 
@@ -48,6 +56,7 @@ Ignoring the details of the encoding scheme, how many different characters can b
 3) What is the difference between "memory" and "storage" as defined in Think OS?
 
 4) What is the difference between a GiB and a GB?  What is the percentage difference in their sizes?
+GiB is a power of 2 (2^30) whereas GB is a power of 10 (10^9). The percentage difference is ~7%.
 
 5) How does the virtual memory system help isolate processes from each other?
 
