@@ -4,7 +4,7 @@
 ### Compilation
 
 1) Give an example of a feature common in interpreted languages that is rare in compiled languages.
-Platform independance - since compiled languages are compiled into machine specific assembly, they are specific to that machine whereas interpreted languages work under the same interface regardless of platform.
+Platform independance - since compiled languages are compiled into machine specific assembly, they are specific to that machine whereas interpreted languages work under the same interface regardless of platform. Another big one would be that the use of dynamic types is almost exclusively reserved for interpreted languages
 
 2) Name two advantages of static typing over dynamic typing.
 In static typing, many errors can be caught earlier in the development process (for instance, if an integer maps to a string, that would be caught compile-time in static typing, but not until run-time in dynamic typing.  Also since everything is pre-assigned compile-time in static typing, the run speed would probably be faster for static typing.
@@ -37,11 +37,12 @@ Classrooms - each class (usually) feels like they 'own' all the space, but reall
 Put simply, a process is a running program...a program is a set of instructions.
 
 3) What is the primary purpose of the process abstraction?  What illusion does the process abstraction create?
-
+Process abstraction is a way of allowing users and developers to more easily work with complicated systems, a specific example is virtualization by which the process 'thinks' it has exclusive access to all of the resources on the computer.
 4) What is the kernel?
+The kernel is the part of the operating system responsible for core capabilities like starting threads
 
 5) What is a daemon?
- 
+A daemon is a process that runs in the background to provide operating system services 
 
 ## Chapter 3
 
@@ -49,22 +50,27 @@ Put simply, a process is a running program...a program is a set of instructions.
 ### Virtual memory
 
 1) The Georgian alphabet has 33 letters.  How many bit are needed to specify a letter?
+You would need 6 bits (2^5 only equals 32, 2^6 is 64.)
 
 2) In the UTF-16 character encoding, the binary representation of a character can take up to 32 bits.  
 Ignoring the details of the encoding scheme, how many different characters can be represented?
+2^32 characters, or about 4.2 Billion characters
 
 3) What is the difference between "memory" and "storage" as defined in Think OS?
+If it is volatile then it is (typically) memory, if non-volatile then it is (typically) storage - i.e. if its contents are lost when the computer is powered down then memory, otherwise storage.
 
 4) What is the difference between a GiB and a GB?  What is the percentage difference in their sizes?
 GiB is a power of 2 (2^30) whereas GB is a power of 10 (10^9). The percentage difference is ~7%.
 
 5) How does the virtual memory system help isolate processes from each other?
+It helps isolate processes by using virtual memory addresses that are then mapped to physical address - such that there is NO virtual address that will map to the physical address that another process is using (unless specifically told to do so?)
 
 6) Why do you think the stack and the heap are usually located at opposite ends of the address space?
-
+The heap and stack are probably located at opposite ends because they are the memory segments that vary most in size...it gives room for both of them to 'grow' or 'shrink' without running into each other or bumping things around.
 7) What Python data structure would you use to represent a sparse array?
-
+I personally would probably use a dictionary, but I also think that there are libraries that allow you to create sparse arrays and sparce matrices directly (though under the hood, do they just use dictionaries?)
 8) What is a context switch?
+A context switch is when the CPU switches from one process to another
 
 In this directory, you should find a subdirectory named `aspace` that contains `aspace.c`.  Run it on your computer and compare your results to mine.
   
