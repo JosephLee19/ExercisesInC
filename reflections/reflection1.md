@@ -1,29 +1,17 @@
 Reflection for Sprint 1:
-After each sprint, you will submit a reflection document with the following sections:
+Sprint 1 was, somewhat surprisingly, extremely effective at helping me to meet my personal learning goals, especially with regards to the project and high level goals (i.e. explore this space and figure out what C is all about, and to just learn enough that I know what I am interested in exploring further).
+There were several thing that went extremely well as well as some things that went pretty poorly over the course of sprint 1. I will start with the things that went well: we have the first part of our project working! (we can produce basic sounds from our arduino with raw C), myself and the rest of my team is on track to catch up with the readings and associated exercises in the not too distant future, I feel like I am learning a lot, and I feel like I am getting my feet wet enough that I will know where to jump into the deep end for project 2. There were a lot of things that didn't go so well (but because we've talked about them and have a plan moving forward/have already resolved some of them, I wouldn't consider them total failures) - one of the biggest things was that team communication was pretty awful. Everyone had said that Slack was the best means of communication, but nobody was receiving my messages. That ended up really slowing us down, a lot more than it should have. Lesson learned though, be more proactive! It ended up being a simple matter of nobody else had signed into the team channel on their phones, but I definitely should have tried other means of communication first before giving up on contacting my team. Another big thing was that while I made a LOT of effort to catch up on the readings, which I did catch up technically speaking, I feel like I only had about 80% retention. It is one of those things were I felt behind (I was behind) so I read as much as I could in the time that I had, got all 6 chapters read, but still felt behind because I felt like I missed some things in the reading. The sprint review confirmed that for me. Our approach to fix this in the future is to use part of class time to go through the reading and questions together as a team. Another thing that ended up happening is that in part because of my confusion about where on GitHub everything was and which repositories I needed to clone and in part because of trying so frantically to catch up on the readings as well as on the project, I never got to the exercises for Head First C 2, 2.5 and 3. Going through the exercises in class with my team will really help me to stay on top of this in the future. I am not totally concerned about it given that we have made tangible progress on the project itself, in which I learned that even if I didn't know how to do things in C, I could pretty easily look them up and still figure out how to program X or do Y. I mostly just need continued programming practice in C to help solidify and speed that process up - practice that will come from both the exercises at first, and then probably even more so from the project in the future. Overall I feel like I am a little behind, but well on my way to being where I need to be.
 
-Written sprint reflection
-Links to your solutions to Head First C exercises
-Written answers to reading questions from Think OS
-Exam question(s) and solutions
- 
+My team did a pretty good job of adapting the eduScrum ceremonies overall, there were a few times in class when we didn't have a formal standup, but we still had a standup in the sense that we asked what we each had been working on and had a conversation around what we thought the best thing to do moving forward. We did a pretty good job actually making use of our Trello board, though towards the end of the sprint, it did become slightly outdated. At our sprint review, we were not as prepared as I would have liked to be in that we didn't have a 100% concrete plan for how to do our project nor what hardware we needed. We were prepared in the sense that we had done a vast amount of research and as soon as we 'woke up' to the fact that we really needed to get moving on the project, we pulled everything together very productively, to the point that I feel like we are in a pretty good place as far as the project is concerned. Our activity throughout the sprint was a bit slower than I expected - at the beginning of the sprint I didn't realize that there were so many options and approaches for how to do an Arduino synthesizer, so it took a lot longer than I expected to actually narrow down what we were doing and what we needed.
 
-Written sprint reflection
+Head First C Exercises:
+I read chapters 1, 2, and 3, however due to the problems I discussed above, I only completed the exercises for chapter 1. Clearly it would have been more ideal to have been able to complete the exercises for all the chapters, but I think that moving forward I have a good plan in place to stay more on top of the exercises and as we get deeper and deeper into the coding for our project, the exercises will probably become less and less important. Link to my exercises: [Head First C Chapter 1 Exercises](JosephLee19/ExercisesInC/tree/master/exercises/ex01)
 
-In your sprint reflections, you should focus on your personal learning goals and take a look back on what went well/poorly during the previous sprint. For things that did not go well, have your interventions from the retrospective improved things?
 
-For Reflection 1, you should focus on the process of Sprint 1 after Reflection 0. How did your team follow or adapt the eduScrum ceremonies? How did your work prepare you for the sprint review, and in what ways were you unprepared? How did your activity throughout the sprint change from what you expected at the beginning as you worked toward your project proposal?
+Think OS Reading Question Answers:
 
- 
-
-Links to Head First C exercises
-
-List the chapters you worked on during this sprint and provide links to your solutions (code, Markdown notes/answers, etc). If you did not complete any HFC exercises during this sprint, explain what you did instead. Since this work also lives within your ExercisesInC repository, you can use relative links (Links to an external site.) for portability.
-
- 
-
-Think OS reading question answers
-
-List the chapters you worked on during this sprint and provide your answers to reading questions, either inline or as links to separate Markdown documents. If you did not complete any TOS exercises during this sprint, explain what you did instead.
+I read Think OS chapters 1, 2, and 3. I answered the reading questions for chapters 1, 2, and most of 3.
+[Think OS Reading Questions](master/reading_questions/thinkos.md)
 
  
 
