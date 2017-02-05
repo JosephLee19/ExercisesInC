@@ -11,7 +11,7 @@ I read chapters 1, 2, and 3, however due to the problems I discussed above, I on
 Think OS Reading Question Answers:
 
 I read Think OS chapters 1, 2, and 3. I answered the reading questions for chapters 1, 2, and most of 3.
-[Think OS Reading Questions](../../reading_questions/thinkos.md)
+[Think OS Reading Questions](https://github.com/JosephLee19/ExercisesInC/blob/master/reading_questions/thinkos.md)
 
  
 
