@@ -93,16 +93,22 @@ true about files systems but not true of their implementations.
 2) What information do you imagine is stored in an `OpenFileTableEntry`?
 
 3) What are some of the ways operating systems deal with the relatively slow performance of persistent storage?
+Block transfers, Prefetching, Buffering, and Caching - essentially the time it takes to retreive an 8 KiB block is about the same as it takes to load a single byte, sometimes the program can just load the whole block (making the assumption that it will probably need other parts of the block?). Prefetching is basically what it sounds like - the operating system predicts that it will need something and loads it ahead of time. Buffering is that after you write something, it is only stored in memory not storage - if you change the block several times before it is written to the disk then you only have to write to the disk once.  Caching is that if a process used a block of memory recently, the operating system keeps a copy of the block in its cache so it can handle future requests with greater speed.
+
 
 4) Suppose your program writes a file and prints a message indicating that it is done writing.  
 Then a power cut crashes your computer.  After you restore power and reboot the computer, you find that the 
 file you wrote is not there.  What happened?
+You probably never closed the file - in which case the information was likely still only stored in memory instead of being written to the disk.  When the power cut crashed the computer, memory was lost and the file was never written to storage, so it was lost.
 
 5) Can you think of one advantage of a File Allocation Table over a UNIX inode?  Or an advantage of a inode over a FAT?
+I feel like the FAT handles very large files better because you don't have a block that points to other blocks that points to other blocks...
 
 6) What is overhead?  What is fragmentation?
+Overhead is the data structures used by the allocator - fragmentation is when you have some blocks partially or completely unused
 
 7) Why is the "everything is a file" principle a good idea?  Why might it be a bad idea?
+It works pretty well because the file system is really more like a "stream of bytes" abstraction, which applies to a lot of things besides just files. I can't think of something specifically that would be a bad reason to use this abstraction, unless there was ever anything that you needed to know exactly how something worked under the hood, in which case an abstraction would be a bad idea.
 
 If you would like to learn more about file systems, a good next step is to learn about journaling file systems.  
 Start with [this Wikipedia article](https://en.wikipedia.org/wiki/Journaling_file_system), then 
