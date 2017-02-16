@@ -89,8 +89,10 @@ How much space is there between them?  Hint: Google knows how to subtract hexade
 
 1) What abstractions do file systems provide?  Give an example of something that is logically 
 true about files systems but not true of their implementations.
+File systems abstract everything as a stream of bytes rather than interfacing directly with the blocks on the hard drive.
 
 2) What information do you imagine is stored in an `OpenFileTableEntry`?
+I would imagine that it is similar to a page table, except instead of mapping virtual memory addresses to physical memory addresses it maps a table entry to the actual hard drive block location.
 
 3) What are some of the ways operating systems deal with the relatively slow performance of persistent storage?
 Block transfers, Prefetching, Buffering, and Caching - essentially the time it takes to retreive an 8 KiB block is about the same as it takes to load a single byte, sometimes the program can just load the whole block (making the assumption that it will probably need other parts of the block?). Prefetching is basically what it sounds like - the operating system predicts that it will need something and loads it ahead of time. Buffering is that after you write something, it is only stored in memory not storage - if you change the block several times before it is written to the disk then you only have to write to the disk once.  Caching is that if a process used a block of memory recently, the operating system keeps a copy of the block in its cache so it can handle future requests with greater speed.
