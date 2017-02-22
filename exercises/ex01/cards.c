@@ -1,3 +1,5 @@
+/* This code comes directly from page 37 of Head First C */
+
 #include <stdio.h>
 #include <stdlib.h>
 int main()

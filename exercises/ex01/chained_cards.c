@@ -1,4 +1,4 @@
-/* 
+/*  Written by Joseph Lee - adapted from code on page 37 of Head First C
 *	chained_cards.c is a program that functions as a card counter for blackjack
 *	it gets the card name from the user (1-9, 'J','Q','K') and increments a counter
 *	up if card is 3, 4, 5, or 6 and down if face card
