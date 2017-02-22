@@ -9,7 +9,7 @@ A final thing that I noticed in sprint 2 is that there were times that I would b
 
 Head First C Exercises:
 
-I read chapter 3 in HFC a second time to try to retain it better, as well as read chapter 4. I am still working on trying to catch up on the exercises and have not gotten to HFC exercise 3.  I did compelte (HFC exercise 4)[], however.
+I read chapter 3 in HFC a second time to try to retain it better, as well as read chapter 4. I am still working on trying to catch up on the exercises and have not gotten to HFC exercise 3.  I did compelte (HFC exercise 4)[https://github.com/JosephLee19/ExercisesInC/blob/master/reading_questions/thinkos.md], however.
 
 Think OS Readings and Questions:
 I read chapters 4 and 5 during sprint 2, but again am still trying to catch up on the questions.  I have completely (chapter 4 reading questions)[]
