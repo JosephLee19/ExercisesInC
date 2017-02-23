@@ -16,8 +16,7 @@ I read chapters 4 and 5 during sprint 2, but again am still trying to catch up o
 
 
 Exam Question:
-What does the declaration below signify:
-int *my_ints[25];
+What does the declaration: int *my_ints[25]; signify?
 
 Answer:
 my_ints is actually an array of pointers, where each pointer points to an integer
