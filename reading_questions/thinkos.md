@@ -4,20 +4,26 @@
 ### Compilation
 
 1) Give an example of a feature common in interpreted languages that is rare in compiled languages.
+Platform independance - since compiled languages are compiled into machine specific assembly, they are specific to that machine whereas interpreted languages work under the same interface regardless of platform. Another big one would be that the use of dynamic types is almost exclusively reserved for interpreted languages
 
 2) Name two advantages of static typing over dynamic typing.
+In static typing, many errors can be caught earlier in the development process (for instance, if an integer maps to a string, that would be caught compile-time in static typing, but not until run-time in dynamic typing.  Also since everything is pre-assigned compile-time in static typing, the run speed would probably be faster for static typing.
 
 3) Give an example of a static semantic error.
+Failure to declare a variable.  (quick note to self, a semantic error is an error that is different from syntactic errors...they are dynamic if not caught until run-time and static if the compiler can detect it)
 
 4) What are two reasons you might want to turn off code optimization?
+Debugging your code in assembly - turning off optimization might make it more readable. Another reason might be if you want to try to optimize your code manually or in a different way.
 
 5) When you run `gcc` with `-S`, why might the results look different on different computers?
+Since -S generates assembly code - could look different on different computers since assembly code is machine specific.  A different machine architecture would mean that the assembly code would be different.
 
 6) If you spell a variable name wrong, or if you spell a function name wrong, 
 the error messages you get might look very different.  Why?
+Misspelled variables will be caught during compilation whereas a misspelled function would be caught during linking, hence the different error messages.
 
 7) What is a segmentation fault?
-
+Segmentation fault occurs when a program tries to read or write to the wrong type of memory (for instance trying to grab a global variable out of the stack).
 
 ## Chapter 2
 
@@ -25,15 +31,18 @@ the error messages you get might look very different.  Why?
 ### Processes
 
 1) Give a real-world example of virtualization (ideally not one of the ones in the book).
+Classrooms - each class (usually) feels like they 'own' all the space, but really it is a shared space where each class virtually owns the space when no other class is using it
 
 2) What is the difference between a program and a process?
+Put simply, a process is a running program...a program is a set of instructions.
 
 3) What is the primary purpose of the process abstraction?  What illusion does the process abstraction create?
-
+Process abstraction is a way of allowing users and developers to more easily work with complicated systems, a specific example is virtualization by which the process 'thinks' it has exclusive access to all of the resources on the computer.
 4) What is the kernel?
+The kernel is the part of the operating system responsible for core capabilities like starting threads
 
 5) What is a daemon?
- 
+A daemon is a process that runs in the background to provide operating system services 
 
 ## Chapter 3
 
@@ -41,21 +50,27 @@ the error messages you get might look very different.  Why?
 ### Virtual memory
 
 1) The Georgian alphabet has 33 letters.  How many bit are needed to specify a letter?
+You would need 6 bits (2^5 only equals 32, 2^6 is 64.)
 
 2) In the UTF-16 character encoding, the binary representation of a character can take up to 32 bits.  
 Ignoring the details of the encoding scheme, how many different characters can be represented?
+2^32 characters, or about 4.2 Billion characters
 
 3) What is the difference between "memory" and "storage" as defined in Think OS?
+If it is volatile then it is (typically) memory, if non-volatile then it is (typically) storage - i.e. if its contents are lost when the computer is powered down then memory, otherwise storage.
 
 4) What is the difference between a GiB and a GB?  What is the percentage difference in their sizes?
+GiB is a power of 2 (2^30) whereas GB is a power of 10 (10^9). The percentage difference is ~7%.
 
 5) How does the virtual memory system help isolate processes from each other?
+It helps isolate processes by using virtual memory addresses that are then mapped to physical address - such that there is NO virtual address that will map to the physical address that another process is using (unless specifically told to do so?)
 
 6) Why do you think the stack and the heap are usually located at opposite ends of the address space?
-
+The heap and stack are probably located at opposite ends because they are the memory segments that vary most in size...it gives room for both of them to 'grow' or 'shrink' without running into each other or bumping things around.
 7) What Python data structure would you use to represent a sparse array?
-
+I personally would probably use a dictionary, but I also think that there are libraries that allow you to create sparse arrays and sparce matrices directly (though under the hood, do they just use dictionaries?)
 8) What is a context switch?
+A context switch is when the CPU switches from one process to another
 
 In this directory, you should find a subdirectory named `aspace` that contains `aspace.c`.  Run it on your computer and compare your results to mine.
   
@@ -74,20 +89,28 @@ How much space is there between them?  Hint: Google knows how to subtract hexade
 
 1) What abstractions do file systems provide?  Give an example of something that is logically 
 true about files systems but not true of their implementations.
+File systems abstract everything as a stream of bytes rather than interfacing directly with the blocks on the hard drive.
 
 2) What information do you imagine is stored in an `OpenFileTableEntry`?
+I would imagine that it is similar to a page table, except instead of mapping virtual memory addresses to physical memory addresses it maps a table entry to the actual hard drive block location.
 
 3) What are some of the ways operating systems deal with the relatively slow performance of persistent storage?
+Block transfers, Prefetching, Buffering, and Caching - essentially the time it takes to retreive an 8 KiB block is about the same as it takes to load a single byte, sometimes the program can just load the whole block (making the assumption that it will probably need other parts of the block?). Prefetching is basically what it sounds like - the operating system predicts that it will need something and loads it ahead of time. Buffering is that after you write something, it is only stored in memory not storage - if you change the block several times before it is written to the disk then you only have to write to the disk once.  Caching is that if a process used a block of memory recently, the operating system keeps a copy of the block in its cache so it can handle future requests with greater speed.
+
 
 4) Suppose your program writes a file and prints a message indicating that it is done writing.  
 Then a power cut crashes your computer.  After you restore power and reboot the computer, you find that the 
 file you wrote is not there.  What happened?
+You probably never closed the file - in which case the information was likely still only stored in memory instead of being written to the disk.  When the power cut crashed the computer, memory was lost and the file was never written to storage, so it was lost.
 
 5) Can you think of one advantage of a File Allocation Table over a UNIX inode?  Or an advantage of a inode over a FAT?
+I feel like the FAT handles very large files better because you don't have a block that points to other blocks that points to other blocks...
 
 6) What is overhead?  What is fragmentation?
+Overhead is the data structures used by the allocator - fragmentation is when you have some blocks partially or completely unused
 
 7) Why is the "everything is a file" principle a good idea?  Why might it be a bad idea?
+It works pretty well because the file system is really more like a "stream of bytes" abstraction, which applies to a lot of things besides just files. I can't think of something specifically that would be a bad reason to use this abstraction, unless there was ever anything that you needed to know exactly how something worked under the hood, in which case an abstraction would be a bad idea.
 
 If you would like to learn more about file systems, a good next step is to learn about journaling file systems.  
 Start with [this Wikipedia article](https://en.wikipedia.org/wiki/Journaling_file_system), then 
