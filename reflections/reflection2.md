@@ -9,7 +9,21 @@ A final thing that I noticed in sprint 2 is that there were times that I would b
 
 Head First C Exercises:
 
+<<<<<<< HEAD
 I read chapter 3 in HFC a second time to try to retain it better, as well as read chapter 4. I am still working on trying to catch up on the exercises and have not gotten to HFC exercise 3.  I did compelte (HFC exercise 4)[], however.
 
 Think OS Readings and Questions:
 I read chapters 4 and 5 during sprint 2, but again am still trying to catch up on the questions.  I have completely (chapter 4 reading questions)[]
+=======
+I read chapter 3 in HFC a second time to try to retain it better, as well as read chapter 4. I am still working on trying to catch up on the exercises and have not gotten to HFC exercise 3.  I did compelte [HFC exercise 4](https://github.com/JosephLee19/ExercisesInC/tree/master/exercises/ex04/trout), however. I apologize about the github messiness, something weird happened when I tried to commit and I am still trying to figure out how to fix it.
+
+Think OS Readings and Questions:
+I read chapters 4 and 5 during sprint 2, but again am still trying to catch up on the questions.  I have completed [chapter 4 reading questions](https://github.com/JosephLee19/ExercisesInC/blob/master/reading_questions/thinkos.md)
+
+
+Exam Question:
+What does the declaration: int *my_ints[25]; signify?
+
+Answer:
+my_ints is actually an array of pointers, where each pointer points to an integer
+>>>>>>> d60ab9f2ab08f8b3456446033b97e986e9d802bc
