@@ -118,12 +118,11 @@ void reverse(Node **list) {
     Node* previous = NULL;
 
     while (current != NULL) {		//index through list until the end	
-	Node* index=current->next;	//save current->next as temporary Node* so we can change current->next to something new, but still index through original list
         current->next = previous;	//change next to point to previous item in list, or NULL for the first element
         previous = current;		//set previous to be current, in preparation for indexing
-        current = index;		//index through original list
+        current = current->next;	//index current to be current->next
     }
-    *list = previous;		//after everything has been flipped, the last item in original list is now the beginning of reversed list
+    *list = previous;
 }
 
 
