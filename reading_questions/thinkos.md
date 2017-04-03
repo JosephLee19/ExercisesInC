@@ -214,8 +214,12 @@ If you can find the technical specifications for your computer, see if your infe
 ### Multitasking
 
 1) What is the kernel's most basic task?
+Interupts and context switches - interupt signals a process to stop, context switch is when switches from one process to another.
+
 
 2) When an interrupt occurs, what part of the hardware state is saved by hardware?
+Hardware state includes program counter (keeps track of where in the program) and registers (translating from virtual address to physical address).  Registers get saved to stack (memory). Program counter is what is saved by hardware so that it isn't overwritten by the program that actually conducts the interrupt..
+
 
 3) What is the difference between an interrupt and a context switch?
 
@@ -224,7 +228,7 @@ If you can find the technical specifications for your computer, see if your infe
 5) Why might a scheduler want to give higher priority to an I/O bound process?
 
 When I make French toast, I usually make a batch of 12 slices.  But my griddle only has room for 8 slices.  Each piece of toast has to cook for 5 minutes on each side.  How can I schedule 12 slices onto 8 "cores" to minimize the elapsed time to cook all 12 slices?  (Note: this question is not hypothetical; this is really how I make French toast.)
-
+8 cooking, flip half and put 4 new on, flip and add for half cooked on. Highest throughput.
 
 
 ## Chapter 9
