@@ -32,7 +32,7 @@ double get_seconds() {
 
 void child_code(int i) 
 {
-    sleep(i);
+   // sleep(i);
     printf("Hello from child %d.\n", i);
     exit(i);
 }
@@ -72,9 +72,9 @@ int main(int argc, char *argv[])
 	}
       
 	/* see if we're the parent or the child */
-	if (pid == 0) {
-	  child_code(i);
-	}
+	//if (pid == 0) {
+	//  child_code(i);
+	//}
     }
     
     /* parent continues */

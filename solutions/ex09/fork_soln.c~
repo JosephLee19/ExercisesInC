@@ -40,7 +40,6 @@ void child_code(int i)
     printf("child shared_int is %d\n", shared_int);
     *int_pointer += 1;
     printf("child int_pointer %d\n", *int_pointer);
-    printf("child int_pointer address %08x\n",&int_pointer);
     exit(i);
 }
 
