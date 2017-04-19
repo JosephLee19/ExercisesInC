@@ -164,7 +164,7 @@ void child_code (Shared *shared)
 	    shared->counter++;
 
 	    if (shared->counter % 100000 == 0) {
-	        printf ("%d\n", shared->counter);
+	      //  printf ("%d\n", shared->counter);
 	    }
     }
 }
@@ -196,12 +196,12 @@ void check_array (Shared *shared)
 {
     int i, errors=0;
 
-    printf ("Checking...\n");
+    //printf ("Checking...\n");
 
     for (i=0; i<shared->end; i++) {
 	    if (shared->array[i] != 1) errors++;
     }
-    printf ("%d errors.\n", errors);
+    //printf ("%d errors.\n", errors);
 }
 
 /*  main

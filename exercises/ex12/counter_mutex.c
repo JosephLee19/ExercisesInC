@@ -1,4 +1,10 @@
-/*     
+/*     This file contains an example program from The Little Book of
+       Semaphores, available from Green Tea Press, greenteapress.com
+
+       Copyright 2014 Allen B. Downey
+       License: Creative Commons Attribution-ShareAlike 3.0
+
+       code edited by Joseph Lee for Software Systems Exercise 12
 */
 
 #include <stdio.h>
