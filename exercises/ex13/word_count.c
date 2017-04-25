@@ -75,6 +75,20 @@ void incr (GHashTable* hash, gchar *key)
     }
 }
 
+
+void free_hash(gpointer key, gpointer value, gpointer user_data)
+{
+    //g_free(key); //somehow the keys and the array are interconnected
+    g_free(value);
+}
+
+void free_seq (gpointer value, gpointer user_data)
+{
+    g_free((Pair *) value);
+}
+
+
+
 int main (int argc, char** argv)
 {
     gchar *filename;
@@ -96,7 +110,7 @@ int main (int argc, char** argv)
        (one-L) NUL terminated strings */
     gchar **array;
     gchar line[128];
-    GHashTable* hash = g_hash_table_new (g_str_hash, g_str_equal);
+    GHashTable* hash = g_hash_table_new(g_str_hash, g_str_equal);
     int i;
 
     // read lines from the file and build the hash table
@@ -108,7 +122,10 @@ int main (int argc, char** argv)
 	for (i=0; array[i] != NULL; i++) {
 	    incr(hash, array[i]);
 	}
+    g_strfreev(array);//free the array after each line not sure how this is causing the IVR errors
+    //must be through its interaction with key...???
     }
+
     fclose (fp);
 
     // print the hash table
@@ -121,10 +138,12 @@ int main (int argc, char** argv)
     // iterate the sequence and print the pairs
     g_sequence_foreach (seq,  (GFunc) pair_printor, NULL);
 
-    // try (unsuccessfully) to free everything
-    // (in a future exercise, we will fix the memory leaks)
+    g_hash_table_foreach(hash, (GHFunc) free_hash, NULL);//iterate through hash table and call free_hash on each
+    g_sequence_foreach(seq, (GFunc) free_seq, NULL);//iterate through sequence and free each
     g_hash_table_destroy (hash);
     g_sequence_free (seq);
-
     return 0;
 }
+
+//does not leak any memory, however there is something funky going on where 
+//the program is trying to read something after it has been freed.

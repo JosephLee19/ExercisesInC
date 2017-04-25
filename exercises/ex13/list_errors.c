@@ -31,17 +31,18 @@ void print_list(Node *head) {
     }
 }
 
-int pop(Node **head) {
+int pop(Node **list) {
     int retval;
-    Node *next_node;
+    Node *head = *list;
 
-    if (*head == NULL) {
+    if (head == NULL) {
         return -1;
     }
 
-    next_node = (*head)->next;
-    retval = (*head)->val;
-    *head = next_node;
+    Node *next_node = head->next;
+    retval = head->val;
+    free(head);
+    *list = next_node;
 
     return retval;
 }
@@ -107,15 +108,19 @@ int insert_by_index(Node **head, int val, int index) {
     Node *node = *head;
 
     if (index == 0) {
-	push(head, val);
-	return 0;
+		push(head, val);
+		return 0;
     }
 
     for (i=0; i<index-1; i++) {
-	if (node == NULL) return -1;
-	node = node->next;
+		if (node == NULL){
+			return -1;
+		}
+		node = node->next;
     }
-    if (node == NULL) return -1;
+    if (node == NULL){
+    	return -1;
+    }
     node->next = make_node(val, node->next);
     return 0;
 }
@@ -131,6 +136,18 @@ Node *make_something() {
     node3->next = node2;
 
     return node3;
+}
+
+void free_list(Node *list){
+//wrote a quick function to go through a list and free each element
+	if (list->next != NULL){
+		Node* next = list->next;
+		free(list);
+		free_list(next);
+	}
+	else{
+		free(list);
+	}
 }
 
 int main() {
@@ -161,8 +178,9 @@ int main() {
     print_list(empty);
 
     Node *something = make_something();
-    free(something);
-
+    free_list(test_list);
+    free_list(empty);
+    free_list(something);
     return 0;
 }
  

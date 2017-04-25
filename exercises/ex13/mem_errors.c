@@ -31,28 +31,31 @@ int main ()
     int *array2 = malloc (100 * sizeof (int));
 
     // valgrind does not bounds-check static arrays
-    read_element(array1, -1);
-    read_element(array1, 100);
+    //read_element(array1, -1);//negative 1 is out of bounds
+    read_element(array1, 99);
 
     // but it does bounds-check dynamic arrays
-    read_element(array2, -1);
-    read_element(array2, 100);
+    //read_element(array2, -1);  -1 is still out of bounds
+    read_element(array2, 99);
 
     // and it catches use after free
+    /* this is in the wrong order, should use it before freeing
     free(use_after_free);
     *use_after_free = 17;
-    
+    */
     // never_free is definitely lost
+    free(use_after_free);
     *never_free = 17;
-
+//but not anymore
+    free_anything(never_free);
     // the following line would generate a warning
     // free(&never_allocated);
 
     // but this one doesn't
-    free_anything(&never_allocated);
+    //free_anything(&never_allocated); no need to free something that hasn't been allocated
     
     free(free_twice);
-    free(free_twice);
-
+   // free(free_twice);
+    free(array2);
     return 0;
 }
