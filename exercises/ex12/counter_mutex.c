@@ -5,6 +5,9 @@
        License: Creative Commons Attribution-ShareAlike 3.0
 
        code edited by Joseph Lee for Software Systems Exercise 12
+       counter.c took 4.295 seconds to run
+       counter_mutex.c took 13.562 seconds to run
+       making the sync overhead 9.267 seconds
 */
 
 #include <stdio.h>
